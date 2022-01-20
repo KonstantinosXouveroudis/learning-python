@@ -35,5 +35,5 @@ def tuple_test():
 
 if __name__ == '__main__':
 
-    # dictionary_test()
-    tuple_test()
+    dictionary_test()
+    # tuple_test()
