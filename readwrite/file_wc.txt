@@ -1,0 +1,2 @@
+Word Count: 4 | Text sample from Python
+Word Count: 6 | Additional text from a different function
