@@ -1,3 +1,10 @@
+"""
+List: []
+Dictionary: {}
+Tuple: ()
+"""
+
+
 tel = {"tom": 7326789820, "rob": 7325730239, "joe": 732092323}  # Dictionary
 ran = ("tom", 7326789820, "new york")
 
