@@ -1,6 +1,7 @@
 import pandas as pd
 
 
+# Several read_csv features. Also returns a cleaner version of stock_data.csv
 def reading_csvs():
     dfl = pd.read_csv("dataframes\\stock_data.csv",
                       skiprows=1)  # Ignore the header in the first row. Also works with header=1
@@ -30,9 +31,18 @@ def reading_csvs():
     return dfl
 
 
-if __name__ == '__main__':
+# Some to_csv features that can be useful when writing a new csv file.
+def writing_csvs(dfl):
+    dfl.to_csv("dataframes\\stock_data_clean.csv",
+               index=False,
+               columns=["tickers", "eps"],  # Only write these 2 columns.
+               header=False  # Without the header.
+               )
 
+
+if __name__ == '__main__':
     df = reading_csvs()
     # print("\nReturned:\n", df)
     df.to_csv("dataframes\\stock_data_clean.csv", index=False)  # Don't insert the index to the new csv
 
+    writing_csvs(df)
