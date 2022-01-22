@@ -17,5 +17,5 @@ book['bob'] = {
 # Takes the dictionary object and dumps it as a string, so it can be converted into json format.
 s = json.dumps(book)
 
-with open("C:\\Users\\Kostas\\PycharmProjects\\learning-python\\json\\book.txt", "w") as f:
+with open("book.txt", "w") as f:
     f.write(s)

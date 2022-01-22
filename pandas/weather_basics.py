@@ -1,7 +1,7 @@
 import pandas as pd
 
 if __name__ == '__main__':
-    # df = pd.read_csv("C:\\Users\\Kostas\\PycharmProjects\\learning-python\\pandas\\dataframes\\weather_data.csv")
+    # df = pd.read_csv("dataframes\\weather_data.csv")
     # Alternatively, we use a dictionary:
     weather_data = {
         'Day': ['1/1/2022', '1/2/2022', '1/3/2022', '1/4/2022', '1/5/2022', '1/6/2022'],

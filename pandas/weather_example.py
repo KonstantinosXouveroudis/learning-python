@@ -2,7 +2,7 @@ import pandas as pd
 
 
 if __name__ == '__main__':
-    df = pd.read_csv('C:\\Users\\Kostas\\PycharmProjects\\learning-python\\pandas\\dataframes\\nyc_weather.csv')
+    df = pd.read_csv('dataframes\\nyc_weather.csv')
     # df = datafrane
     print(df)
 

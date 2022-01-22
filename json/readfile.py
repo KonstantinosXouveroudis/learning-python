@@ -1,6 +1,6 @@
 import json
 
-f = open("C:\\Users\\Kostas\\PycharmProjects\\learning-python\\json\\book.txt", "r")
+f = open("book.txt", "r")
 s = f.read()
 
 book = json.loads(s)  # loads = load string. Converts it into a dictionary.
