@@ -45,4 +45,5 @@ if __name__ == '__main__':
     # print("\nReturned:\n", df)
     df.to_csv("dataframes\\stock_data_clean.csv", index=False)  # Don't insert the index to the new csv
 
-    writing_csvs(df)
+    # writing_csvs(df)
+
