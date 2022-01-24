@@ -3,9 +3,9 @@ import pandas as pd
 
 # Several read_csv features. Also returns a cleaner version of stock_data.csv
 def reading_csvs():
-    dfl = pd.read_csv("dataframes\\stock_data.csv",
+    dfl = pd.read_csv("dataframes\\stock_data.csv",  # dfl = data frame local
                       skiprows=1)  # Ignore the header in the first row. Also works with header=1
-    print(dfl)  # dfl = data frame local
+    print(dfl)
 
     # Similar csv file, but without any headers. So we insert our own.
     dfl = pd.read_csv("dataframes\\stock_data2.csv",

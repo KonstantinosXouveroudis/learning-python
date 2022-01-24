@@ -14,8 +14,8 @@ def io_excel_basics():
 
     dfl = pd.read_excel("dataframes\\stock_data.xlsx", "Sheet1",
                         converters={
-                           'people': convert_people_cell
-                       })
+                            'people': convert_people_cell
+                        })
     print("\n", dfl)
 
     dfl.to_excel("dataframes\\stock_data_edit.xlsx", sheet_name="stocks",
@@ -46,5 +46,3 @@ def insert_two_dfs():
 if __name__ == '__main__':
     # io_excel_basics()
     insert_two_dfs()
-
-

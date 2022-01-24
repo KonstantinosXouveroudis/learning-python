@@ -33,7 +33,7 @@ if __name__ == '__main__':
     df_dict_list = pd.DataFrame(weather_dict_list)
     print("\nList of Python Dictionaries:\n", df_dict_list)
 
-    # 5) Python tuple
+    # 5) List of Python tuples
     weather_tuple = [
         ('1/1/2022', 32, 6, 'Rain'),
         ('1/2/2022', 35, 7, 'Sunny'),
