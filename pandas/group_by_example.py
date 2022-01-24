@@ -18,11 +18,8 @@ if __name__ == '__main__':
 
     print("\nStatistics for each group:\n", group.describe())
 
-    print("\n\n------------------\n\n")
-
     # plt.interactive(False)
     for city, city_df in group:
         city_df.plot()
         plt.savefig(f"plots\\plot-{city}.jpg")
-    # group.plot()
-    # plt.savefig('test.jpg')
+
