@@ -4,7 +4,8 @@ import numpy as np
 if __name__ == '__main__':
 
     """
-    Replace the numerical grades in the dataframe with a single word depending on the grade. Ranges:
+    The following dataset has a blank column (Comment).
+    Using the information below, add the correct comment for each row depending on the grade.
     0 - 2:  Poor
     3 - 6:  Average
     7 - 8:  Good
