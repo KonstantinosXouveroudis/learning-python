@@ -4,7 +4,7 @@ import numpy as np
 if __name__ == '__main__':
 
     """
-    The following dataset has a blank column (Comment).
+    The following dataframe has a blank column (Comment).
     Using the information below, add the correct comment for each row depending on the grade.
     0 - 2:  Poor
     3 - 6:  Average
