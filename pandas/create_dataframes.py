@@ -2,7 +2,7 @@ import pandas as pd
 import openpyxl  # Was needed to read excel
 
 # Different ways to create a dataframe using pandas
-# More to experiment with on a later date: https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html
+# More to experiment with (in exercises directory): https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html
 
 if __name__ == '__main__':
     # 1) Read Excel

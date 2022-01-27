@@ -2,7 +2,8 @@ import pandas as pd
 from numpy import random as rnd
 import jinja2  # For LaTeX
 from astropy.table import Table  # To read a LaTeX table
-import lxml
+import pymysql
+from sqlalchemy import create_engine
 
 
 def io_json():
@@ -80,8 +81,53 @@ def io_xml():
     print("\n\nReading an xml from an online source:\n", df_xml2)
 
 
+def io_mysql():
+    passwd = input('Enter password: ')
+    engine = create_engine(f'mysql+pymysql://root:{passwd}@localhost:3306/my_test_db')
+    df_sql = pd.read_sql_table("shop", engine)
+    print(df_sql)
+
+    # Select these 2 columns from the shop table in the database my_test_db.
+    df_sql = pd.read_sql_table("shop", engine, columns=['dealer', 'price'])
+    print("\n", df_sql)
+
+    # Inner Join
+    query = """
+    SELECT customers.name, customers.phone_number, orders.name, orders.amount
+    FROM customers INNER JOIN orders
+    ON customers.id = orders.customer_id;
+    """
+    df_sql = pd.read_sql_query(query, engine)
+    print("\n", df_sql)
+
+    # Writing new data in the db.
+    df = pd.read_csv("io_data\\customers.csv")
+    df.rename(columns={  # We need to rename the dataframe's columns to match the db's.
+        'Customer Name': 'name',
+        'Customer Phone': 'phone_number'
+    }, inplace=True)
+    print("\n", df)
+
+    df.to_sql(
+        name='customers',
+        con=engine,
+        index=False,
+        if_exists='append'
+    )
+    """
+    if_exists{‘fail’, ‘replace’, ‘append’}, default ‘fail’
+    How to behave if the table already exists.
+        fail: Raise a ValueError.
+        replace: Drop the table before inserting new values.
+        append: Insert new values to the existing table.
+    """
+
+    df_sql = pd.read_sql_table("customers", engine, columns=['name', 'phone_number'])
+    print("\n", df_sql)
+
+
 if __name__ == '__main__':
     # io_json()
     # io_LaTeX()
-    io_xml()
-
+    # io_xml()
+    io_mysql()
