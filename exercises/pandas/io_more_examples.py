@@ -122,8 +122,8 @@ def io_mysql():
         append: Insert new values to the existing table.
     """
 
-    df_sql = pd.read_sql_table("customers", engine, columns=['name', 'phone_number'])
-    print("\n", df_sql)
+    # We can also add a query as the first parameter
+    print(pd.read_sql("customers", engine, columns=['name', 'phone_number']))
 
 
 if __name__ == '__main__':
