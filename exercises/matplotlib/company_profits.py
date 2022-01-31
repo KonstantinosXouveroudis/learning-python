@@ -119,6 +119,27 @@ def pie_charts(dfl):
     plt.savefig("plots\\pie_yearly_sales.jpg", bbox_inches="tight")
 
 
+def stackplots(dfl):
+    months = dfl['month_number']
+    facecream = dfl['facecream']
+    facewash = dfl['facewash']
+    toothpaste = dfl['toothpaste']
+    bathingsoap = dfl['bathingsoap']
+    shampoo = dfl['shampoo']
+    moisturizer = dfl['moisturizer']
+
+    plt.stackplot(months, facecream, facewash, toothpaste, bathingsoap, shampoo, moisturizer,
+                  labels=['Face Cream', 'Face Wash', 'Tooth Paste', 'Bathing Soap', 'Shampoo', 'Moisturizer'],
+                  colors=['#fcc65b', '#8deca3', '#359ae5', '#d29df6', '#98c5f3', '#557551'])
+    plt.title("All Product Sales")
+    plt.xlabel("Month Number")
+    plt.ylabel("Sale units in numbers")
+    plt.xticks(months)
+    plt.legend(loc='upper left')
+    # plt.show()
+    plt.savefig("plots\\stack_products.jpg", bbox_inches="tight")
+
+
 if __name__ == '__main__':
     data = "datasets\\company_sales_data.csv"
     df = pd.read_csv(data)
@@ -128,4 +149,6 @@ if __name__ == '__main__':
     # scatter_plots(df, months)
     # bar_plots(df, months)
     # histograms(df)
-    pie_charts(df)
+    # pie_charts(df)
+    stackplots(df)
+
