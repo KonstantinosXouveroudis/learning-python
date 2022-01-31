@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
 
 
 def line_plots(dfl, x_pos):
@@ -93,12 +94,38 @@ def histograms(dfl):
     plt.close()
 
 
+def pie_charts(dfl):
+    facecream = np.sum(dfl['facecream'])  # Could also do dfl['faceream'].sum()
+    facewash = np.sum(dfl['facewash'])
+    toothpaste = np.sum(dfl['toothpaste'])
+    bathingsoap = np.sum(dfl['bathingsoap'])
+    shampoo = np.sum(dfl['shampoo'])
+    moisturizer = np.sum(dfl['moisturizer'])
+
+    yearly_profits = [facecream, facewash, toothpaste, bathingsoap, shampoo, moisturizer]
+    product_labels = ['Face Cream', 'Face Wash', 'Tooth Paste', 'Bathing Soap', 'Shampoo', 'Moisturizer']
+
+    yearly_profits_str = []
+    for product in yearly_profits:
+        yearly_profits_str.append(f"{product} sales")
+
+    plt.title('Yearly Sales per Product')
+    plt.pie(yearly_profits, labels=yearly_profits_str, autopct='%0.1f%%')
+
+    # Attempting to manually place the legend somewhere with bbox_to_anchor()
+    # 1st parameter (-: left, +: right), 2nd parameters(-:down, +: up) (Logic I used for this particular example)
+    plt.legend(product_labels, loc='lower left', bbox_to_anchor=(-0.35, 0.35))
+    # plt.show()
+    plt.savefig("plots\\pie_yearly_sales.jpg", bbox_inches="tight")
+
+
 if __name__ == '__main__':
     data = "datasets\\company_sales_data.csv"
     df = pd.read_csv(data)
     months = df['month_number']
 
-    line_plots(df, months)
-    scatter_plots(df, months)
-    bar_plots(df, months)
-    histograms(df)
+    # line_plots(df, months)
+    # scatter_plots(df, months)
+    # bar_plots(df, months)
+    # histograms(df)
+    pie_charts(df)
