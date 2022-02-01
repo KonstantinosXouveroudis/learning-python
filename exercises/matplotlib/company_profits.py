@@ -140,6 +140,40 @@ def stackplots(dfl):
     plt.savefig("plots\\stack_products.jpg", bbox_inches="tight")
 
 
+def subplots(dfl, x_pos):
+    bathingsoap = dfl['bathingsoap']
+    facewash = dfl['facewash']
+
+    fig, plots = plt.subplots(2, sharex=True)
+    plots[0].plot(x_pos, bathingsoap, color='black', marker='o')
+    plots[0].set_title('Bathing Soap Sales Data')
+    plots[0].grid()
+    plots[1].plot(x_pos, facewash, color='red', marker='o')
+    plots[1].set_title('Face Wash Sales Data')
+    plots[1].grid()
+
+    plt.xticks(x_pos)
+    plt.xlabel('Month Number')
+    plt.ylabel('Number of Sale Units')
+    # plt.show()
+    plt.savefig("plots\\subplots_bathsoap_facewash.jpg")
+
+    """ (Slightly different approach)
+    plt.subplot(2, 1, 1)
+    plt.plot(x_pos, dfl['bathingsoap'], color='black', marker='o')
+    plt.title("Bathing Soap Sales Data")
+    plt.xticks(x_pos)
+    plt.grid()
+
+    plt.subplot(2, 1, 2)
+    plt.plot(x_pos, dfl['facewash'], color='red', marker='o')
+    plt.title("Face Wash Sales Data")
+    plt.xticks(x_pos)
+    plt.grid()
+    plt.show()
+    """
+
+
 if __name__ == '__main__':
     data = "datasets\\company_sales_data.csv"
     df = pd.read_csv(data)
@@ -150,5 +184,6 @@ if __name__ == '__main__':
     # bar_plots(df, months)
     # histograms(df)
     # pie_charts(df)
-    stackplots(df)
+    # stackplots(df)
+    subplots(df, months)
 
