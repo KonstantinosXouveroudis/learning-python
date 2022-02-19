@@ -45,7 +45,7 @@ def basic_training():
     plt.ylabel('Price', fontsize=20)
     plt.scatter(dfl['area'], dfl['price'], color='red', marker='+')
     plt.plot(dfl['area'], regl.predict(dfl[['area']].values), color='blue')
-    plt.savefig('plots\\homeprices_prediction.jpg')
+    plt.savefig('plots\\homeprices_prediction.jpg', bbox_inches="tight")
 
     # Returning the regression model, so it can be used outside the function.
     return regl
@@ -53,10 +53,10 @@ def basic_training():
 
 if __name__ == '__main__':
     reg = basic_training()
-    dfl = pd.read_csv('data\\areas.csv')
+    df = pd.read_csv('data\\areas.csv')
 
-    price_prediction = reg.predict(dfl.values)
+    price_prediction = reg.predict(df.values)
 
     # Creating new column in the dataframe to assign the predicted prices to.
-    dfl['prices'] = price_prediction
-    dfl.to_csv("data\\areas_predicted_prices.csv", index=False)
+    df['prices'] = price_prediction
+    df.to_csv("data\\areas_predicted_prices.csv", index=False)

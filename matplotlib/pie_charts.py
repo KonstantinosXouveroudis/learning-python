@@ -11,7 +11,7 @@ if __name__ == '__main__':
     plt.cla()
     plt.pie(exp_vals, labels=exp_labels,
             radius=1.2,  # Increase size.
-            autopct='%0.1f%%',  # Percentage. 0.1 means we want one decimal in our %. 0.2 for 2 amd so on.
+            autopct='%0.1f%%',  # Percentage. 0.1 means we want one decimal in our %. 0.2 for 2 and so on.
             # startangle=45,  # In case you want to rotate the pie by degrees.
             explode=[0, 0.2, 0, 0, 0.5]  # Split certain pieces of the pie from it. Specify distance.
             )

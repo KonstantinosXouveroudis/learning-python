@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def basic_operations():
     # 2D array
     array1 = np.array([[1, 2], [3, 4], [5, 6]])
@@ -25,15 +26,15 @@ def basic_operations():
     print("\n-------------------------------")
 
     array3 = np.arange(1, 5)
-    print("\n", array3)
+    print("\narray3\n", array3)
 
     array4 = np.arange(1, 5, 2)  # Steps of 2
-    print("\n", array4)
+    print("\narray4\n", array4)
 
     array5 = np.linspace(1, 5, 10)  # Linearly spaced
-    print("\n", array5)
+    print("\narray5\n", array5)
 
-    print("Min: ", array5.min(), "\nMax: ", array5.max())
+    print("Min: ", array5.min(), "\nMax: ", array5.max(), "\n")
 
 
 def select_array_parts(a):
@@ -81,6 +82,7 @@ if __name__ == '__main__':
     # print("First 2 elements:", a[0:2])
 
     a = np.array([[6, 7, 8], [1, 2, 3], [9, 3, 2]])
+    # basic_operations()
     # select_array_parts(a)
     # iterating_examples(a)
 
