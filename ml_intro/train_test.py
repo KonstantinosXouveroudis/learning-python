@@ -27,7 +27,7 @@ if __name__ == '__main__':
     model.fit(x_train, y_train)
 
     prediction = model.predict(x_test)
-    print("\nPrediction:\n", prediction, "\n\nActua data:\n", y_test)
+    print("\nPrediction:\n", prediction, "\n\nActual data:\n", y_test)
 
     print("\nAccuracy: ", model.score(x_test, y_test))
 
