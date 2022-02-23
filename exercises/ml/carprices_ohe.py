@@ -12,14 +12,17 @@ if __name__ == '__main__':
     df = pd.read_csv("data\\carprices.csv")
     print(df.head())
 
+    # Create dummy variables and a new dataset containing all the necessary columns.
     model_dummies = pd.get_dummies(df['Car Model'])
     df2 = pd.concat([df['Mileage'], df['Sell Price($)'], df['Age(yrs)'], model_dummies], axis='columns')
     df2.drop(['Mercedez Benz C class'], axis='columns', inplace=True)
     print("\n", df2)
 
+    # Preparing to fit the model
     x = df2.drop(['Sell Price($)'], axis='columns')
     y = df2['Sell Price($)']
 
+    # Split to training/testing sets, then fit.
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2)  # Training set 80%, Testing set 20%
     model = LinearRegression()
     model.fit(x_train.values, y_train)
